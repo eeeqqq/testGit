@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="jw.tjrac.domain.ApprovalForm" table="approvalForm">
+  <id name="approvalFormId" type="java.lang.Long" length="5">
+   <column name="approvalFormId"></column>
+   <generator class="increment"></generator>
+  </id>
+  <property name="approvalTime" type="java.util.Date"></property>
+  <property name="applicant" type="java.lang.String" length="20"></property>
+  <property name="approvalState" type="java.lang.String" length="20"></property>
+  <property name="applyDays" type="java.lang.String" length="20"></property>
+  <property name="approvalFormTitle" type="java.lang.String" length="100"></property>
+  <property name="approvalFormUrl" type="java.lang.String" length="200"></property>
+
+  <set name="approvalInformations" inverse="true">
+   <key>
+    <column name="InformationId"></column>
+   </key>
+   <one-to-many class="jw.tjrac.domain.ApprovalInformation" />
+  </set>
+
+  <many-to-one name="formTemplate" class="jw.tjrac.domain.FormTemplate"
+   column="formTemplateId" ></many-to-one>
+ </class>
+</hibernate-mapping>

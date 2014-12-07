@@ -1,0 +1,46 @@
+var kynamicTreeDate = [{
+	id:'1',
+	pid:'0',
+	name:'知识管理',
+	isParent:true,
+	icon:'../style/images/MenuIcon/FUNC20056.gif',
+	nodes:[
+		{
+	id:'2',
+	pid:'1',
+	name:'文档管理',
+	isParent:true,
+	nodes:[
+		{
+			id:'21',
+			pid:'2',
+			isParent:false,
+			name:'文档一'
+		},{
+			id:'22',
+			pid:'2',
+			isParent:false,
+			name:'文档二'
+		}	
+	]
+},{
+	id:'3',
+	pid:'1',
+	isParent:true,
+	name:'多媒体管理',
+	nodes:[
+		{
+			id:'31',
+			pid:'3',
+			isParent:false,
+			name:'多媒体一'
+		},{
+			id:'32',
+			pid:'3',
+			isParent:false,
+			name:'多媒体二'
+		}	
+	]
+}	
+	]
+}];

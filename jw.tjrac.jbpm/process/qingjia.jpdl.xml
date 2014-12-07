@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="qingjia" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="40,50,48,48" name="start1">
+      <transition g="-33,-22" name="to 申请请假" to="申请请假"/>
+   </start>
+   <task g="162,49,92,52" name="申请请假">
+      <transition g="-39,-24" name="to 辅导员审批" to="辅导员审批"/>
+   </task>
+   <task assignee="cailaoshi" g="352,50,92,52" name="辅导员审批">
+      <transition to="exclusive1"/>
+   </task>
+   <decision expr="#{applyDays>3?'more3days':'less3days'}" g="532,54,48,48" name="exclusive1">
+      <transition g="-43,-23" name="more3days" to="系主任审批"/>
+      <transition g="-80,-18" name="less3days" to="end1"/>
+   </decision>
+   <task assignee="zhangzhuren" g="666,52,92,52" name="系主任审批">
+      <transition to="exclusive2"/>
+   </task>
+   <decision expr="#{applyDays>7?'more7days':'less7days'}" g="854,54,48,48" name="exclusive2">
+      <transition g="-41,-21" name="more7days" to="院长审批"/>
+      <transition g="14,-2" name="less7days" to="end1"/>
+   </decision>
+   <task assignee="wuyuanzhang " g="972,52,92,52" name="院长审批">
+      <transition g="1022,255:-54,-16" name="to end1" to="end1"/>
+   </task>
+   <end g="549,232,48,48" name="end1"/>
+</process>
